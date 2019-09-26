@@ -4,10 +4,12 @@ import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import React from 'react';
 import defaultImage from '../images/seo_image.jpg';
+import englishVersionSeoImage from '../images/EYE_green_wide.jpg';
 import path from 'path';
 
 function SEO({ description, lang, meta, image, keywords, title }) {
-  const seoImage = image || defaultImage;
+  const seoImage =
+    image || lang === 'fi' ? defaultImage : englishVersionSeoImage;
 
   return (
     <StaticQuery
@@ -15,6 +17,7 @@ function SEO({ description, lang, meta, image, keywords, title }) {
       render={data => {
         const metaDescription =
           description || data.site.siteMetadata.description;
+
         return (
           <Helmet
             htmlAttributes={{
@@ -95,7 +98,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.array,
   image: PropTypes.string,
-  keywords: PropTypes.arrayOf(PropTypes.string),
+  keywords: PropTypes.array,
   title: PropTypes.string.isRequired,
 };
 

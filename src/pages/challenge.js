@@ -14,6 +14,7 @@ import mainSEOtags from '../content/seo/mainSEOtags';
 const Challenge = () => (
   <Layout>
     <SEO
+      lang="fi"
       title="Full stack -haaste | Full Stack Open 2019"
       description="Helsingin yliopisto, Houston Inc ja kumppaniyrityksemme haastavat niin koodarit kuin yritykset kasvattamaan osaamistaan tätä kurssia suorittamalla. Haaste on tarkoitettu jokaiselle sovelluskehitysalan osaajalle ja sellaiseksi haluavalle."
       keywords={[
@@ -74,11 +75,11 @@ const Challenge = () => (
           ]}
         />
 
-        <Form />
+        <Form lang="en" />
       </Element>
     </Element>
 
-    <CompaniesBanner />
+    <CompaniesBanner lang="fi" />
 
     <SubHeader
       className="col-10 spacing--after centered"

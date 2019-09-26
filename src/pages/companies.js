@@ -6,11 +6,13 @@ import Layout from '../components/layout';
 import React from 'react';
 import SEO from '../components/seo';
 import mainSEOtags from '../content/seo/mainSEOtags';
-import stories from '../content/stories/stories';
+import stories from '../content/pages/stories';
 
 const Companies = () => (
   <Layout>
-    <SEO title="Yritysesittelyt | Full Stack Open 2019"
+    <SEO
+      lang="fi"
+      title="Yritysesittelyt | Full Stack Open 2019"
       description="Kurssin yhteistyöyritysten devaajat esittäytyvät"
       keywords={[
         ...mainSEOtags,
@@ -20,10 +22,18 @@ const Companies = () => (
         'frontend',
         'elisa',
         'terveystalo',
+        'konecranes',
+        'k-ryhmä',
+        'unity technologies',
+        'unity',
+        'kesko',
         'sympa',
         'funktionaalinen ohjelmointi',
-        'mikropalveluarkkitehtuuri'
-      ]} 
+        'functional programming',
+        'mikropalveluarkkitehtuuri',
+        'micro service architecture',
+        'micro service',
+      ]}
     />
 
     <Element className="container">
@@ -35,14 +45,14 @@ const Companies = () => (
         }}
       />
 
-      {stories.map(story => (
-        <DeveloperStory key={story.name} {...story} />
+      {stories.fi.map(story => (
+        <DeveloperStory key={story.name} {...story} lang="fi" />
       ))}
 
       <Element className="spacing" />
     </Element>
 
-    <Footer />
+    <Footer lang="fi" />
   </Layout>
 );
 

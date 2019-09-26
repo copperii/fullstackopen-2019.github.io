@@ -80,9 +80,20 @@ const inChallenge = [
   'Integrify',
   'Rentle',
   'Compile',
+  'Telia',
+  'Umbrella Interactive',
+  'Tabella',
+  'Nextup',
+  // 'Vertix',
+  // 'Future Captcha Consulting',
+  'Kela',
+  'Geometrix',
+  'Netyourself',
+  'Vincit',
+  'Vero',
 ];
 
-export const CompaniesBanner = ({ isFrontPage }) => (
+export const CompaniesBanner = ({ isFrontPage, lang }) => (
   <Banner
     backgroundColor={isFrontPage && 'white'}
     className="spacing--after"
@@ -92,7 +103,7 @@ export const CompaniesBanner = ({ isFrontPage }) => (
       <BodyText
         centered
         className="col-4 push-right-3 challenge-title"
-        text="Yhteistyössä"
+        text="In co-operation with"
       />
       <Element
         flex
@@ -118,7 +129,11 @@ export const CompaniesBanner = ({ isFrontPage }) => (
           <BodyText
             centered
             className="col-4 spacing push-right-3 challenge-title"
-            text="Full stack -haasteessa mukana"
+            text={
+              lang === 'fi'
+                ? 'Full stack -haasteessa mukana'
+                : 'Taking part to Full stack challenge'
+            }
           />
           <Element
             flex
@@ -141,8 +156,11 @@ export const CompaniesBanner = ({ isFrontPage }) => (
 
       {isFrontPage && (
         <Element flex spaceAround className="col-10 spacing">
-          <Link className="about__challenge-button" to="/challenge">
-            Lisätietoja haasteesta
+          <Link
+            className="about__challenge-button"
+            to={`${lang === 'en' ? '/en' : ''}/challenge`}
+          >
+            {lang === 'en' ? 'More about challenge' : 'Lisätietoja haasteesta'}
           </Link>
         </Element>
       )}
@@ -152,8 +170,10 @@ export const CompaniesBanner = ({ isFrontPage }) => (
 
 CompaniesBanner.defaultProps = {
   isFrontPage: false,
+  lang: 'fi',
 };
 
 CompaniesBanner.propTypes = {
   isFrontPage: PropTypes.bool,
+  lang: PropTypes.string.isRequired,
 };
